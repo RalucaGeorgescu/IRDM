@@ -11,24 +11,25 @@ class Logistic_Regression(object):
         self.eta = eta
         self.W = np.zeros([n_attributes, n_relevance], dtype=float)
     
-    def fit(self, data, r_learn, iterations=10000, batch_size=10000):
+    def fit(self, data, r_learn, iterations=100, batch_size=10000):
         for i in range(iterations):
             batch_x, batch_y = self.__get_batch(data, batch_size)
             self.W = self.W - r_learn * self.__compute_gradients(batch_x, batch_y)
             
-            if i % 100 == 0:
-                print('Iteration: {} Regularized log-likelihood: {}'.format(i, self.__reg_log_likelihood(batch_x, batch_y)))
-                print('Least sq error:', self.__least_sq_error(batch_x, batch_y))
+            if i % 1000 == 0:
+                print('Iteration: {} Batch least sq error: {}'.format(i, self.__least_sq_error(batch_x, batch_y)))
     
     def classification_accuracy(self, test_x, test_y):
         test_x = numpify(test_x).reshape(-1, n_attributes)
         test_y = numpify(test_y).reshape(-1, 1)
-        predictions = np.argmax(self.__softmax(self.W, test_x), axis=1)
+        predictions = np.argmax(self.__softmax(self.W, test_x), axis=1).reshape(test_y.shape)
         return np.mean(test_y == predictions)
         
     def __softmax(self, W, x):
-        numerator = np.exp(np.dot(x, W))
-        return numerator / np.sum(numerator, axis=0)
+        exponent = np.dot(x, W)
+        exponent -= np.amax(exponent, axis=1, keepdims=True)
+        numerator = np.exp(exponent)
+        return numerator / np.sum(numerator, axis=1, keepdims=True)
 
     def __reg_log_likelihood(self, x, y):
         log_probabilities = np.log(self.__softmax(self.W, x))

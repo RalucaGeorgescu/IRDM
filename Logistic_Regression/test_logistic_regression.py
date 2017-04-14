@@ -15,16 +15,19 @@ else:
     vali_data_path = full_data_dir + '/vali.txt'
     test_data_path = full_data_dir + '/test.txt'
     
-    train_data = normalize_data(import_data(train_data_path))[:30000]
-    vali_data = normalize_data(import_data(vali_data_path))[:30000]
-    test_data = normalize_data(import_data(test_data_path))[:30000]
+    train_data = normalize_data(import_data(train_data_path))[:100000]
+    vali_data = normalize_data(import_data(vali_data_path))[:100000]
+    test_data = normalize_data(import_data(test_data_path))[:100000]
     
     dump_object(train_data, toy_data_dir + '/train')
     dump_object(vali_data, toy_data_dir + '/vali')
     dump_object(test_data, toy_data_dir + '/test')
 
-log_reg = Logistic_Regression('L2', eta=0.001)
-log_reg.fit(train_data, r_learn=0.01, iterations=10000, batch_size=10)
+#log_reg = Logistic_Regression('L1', eta=0.05)
+#log_reg.fit(train_data, r_learn=0.15, iterations=5000, batch_size=1000)
+
+log_reg = Logistic_Regression('L2', eta=0.05)
+log_reg.fit(train_data, r_learn=0.2, iterations=5000, batch_size=1000)
 
 test_y = test_data.pop('relevance')
 accuracy = log_reg.classification_accuracy(test_data, test_y)

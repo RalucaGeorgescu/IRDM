@@ -15,7 +15,10 @@ def import_data(data_path):
     return pd.read_table(data_path, delim_whitespace=True, header=None, names=columns, converters=converters)
 
 def normalize_data(data):
-    return (data - np.mean(data, axis=0)) / np.std(data, axis=0)
+    data_y = data.pop('relevance')
+    normalized_data = (data - np.mean(data, axis=0)) / np.std(data, axis=0)
+    normalized_data['relevance'] = data_y
+    return normalized_data
 
 def numpify(data):
     return np.array(data)
