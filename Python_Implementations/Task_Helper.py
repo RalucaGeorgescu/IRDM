@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import tensorflow as tf
 import pickle
 import re, os
 
@@ -62,3 +63,19 @@ def load_object(save_path):
         object_fetched = pickle.load(handle)
         print('Data succesfully loaded from:', save_path)
     return object_fetched
+
+def load_tf_model(session, model_dir, model_filename):
+    model_path = model_dir + "/" + model_filename
+    saver = tf.train.Saver()
+    saver.restore(session, model_path)
+    print('Model succesfully loaded from: ', model_path)
+
+def save_tf_model(sess, model_dir, model_filename):
+    if not os.path.exists(model_dir):
+        os.mkdir(model_dir)
+
+    model_path = model_dir + "/" + model_filename
+    saver = tf.train.Saver()
+    saver.save(sess, model_path)
+    print('Model succesfully saved at:', model_path)
+    
