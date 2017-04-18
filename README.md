@@ -1,5 +1,6 @@
-# IRDM
-Information Retrieval and Data Mining Coursework Project 
+# Information Retrieval and Data Mining Coursework 2017
+### Learning to Rank
+##### Group 20 - Anna Aleksieva, Hugo Chu, Raluca Georgescu, Julija Bainiaksinaite
 
 This project evaluates a range of Learning to Rank algorithms RankNet, LambdaMART and AdaRank, together with an implementation of ranking as a classification task and proposes an improved approach based on neural networks.
 
