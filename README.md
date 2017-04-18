@@ -23,3 +23,7 @@ The following are instructions to run each algorithm proposed:
   java -jar RankLib-2.1-patched.jar -rank MSLR-WEB10K/Fold1/test.txt -load model_fold1_NDCG.txt -score scores_NDCG.txt
   ```
   - The code for evaluating the rankings against the implemented NDCG@10 and MAP metrics is available in the [AdaRank/AdaRank_Evaluation](https://github.com/RalucaGeorgescu/IRDM/blob/master/AdaRank/AdaRank_Evaluation.ipynb) notebook.
+
+- Ranking as Classification
+
+- Neural Network
