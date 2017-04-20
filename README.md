@@ -62,6 +62,12 @@ The following are instructions to run each algorithm proposed:
   ```
   - The code for evaluating the rankings against the implemented NDCG@10 and MAP metrics is available in the [AdaRank/AdaRank_Evaluation](https://github.com/RalucaGeorgescu/IRDM/blob/master/AdaRank/AdaRank_Evaluation.ipynb) notebook.
 
-- Ranking as Classification
+- Logistic Regression
+Go to LR_and_DeepNet/Implementations folder, run test_logistic_regression.py to see the models train. The parameters have been tuned to converge consistently within 15000 steps. You will need one fold of the dataset in LR_and_DeepNet/All
 
-- Neural Network
+Project should be run with Python3.
+
+- DeepNet
+Go to LR_and_DeepNet/Implementations folder, run DeepNet.py to get NDCG and MAP of trained model. Please be reminded this takes a lot of computational resources and time to run. You will need one fold of the dataset in LR_and_DeepNet/All
+
+Use Tensorflow 1.0
