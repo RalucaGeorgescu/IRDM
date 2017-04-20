@@ -17,6 +17,18 @@ The following are instructions to run each algorithm proposed:
   ```
   python prep.py
   ```
+  - All the pretrained models are placed in the subdirectory models/. To reload the pretrained models and evaluate them on nDCG@10 and MAP, run the following command within the directory:
+  ```
+  python reload.py
+  ```
+  - To run the grid search on hyperparameters:
+  ```
+  python grid_models.py
+  ```
+  - To train a model for each fold and average over the results for nDCG@10 and MAP:
+  ```
+  python model_folds.py
+  ```
 
 - AdaRank
   - Based on the implementation from RankLib, Lemur Project, the code has been run using the following rules from the command line. The user has to be in the same directory with the downloaded RankLib-2.1-patched.jar library file. And has to have access to the MSLR-WEB10K dataset, also from the same current folder.
