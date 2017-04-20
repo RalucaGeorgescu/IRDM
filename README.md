@@ -31,7 +31,7 @@ The following are instructions to run each algorithm proposed:
   ```
 
 - AdaRank
-  - Based on the implementation from RankLib, Lemur Project, the code has been run using the following rules from the command line. The user has to be in the same directory with the downloaded RankLib-2.1-patched.jar library file. And has to have access to the MSLR-WEB10K dataset, also from the same current folder.
+  - Based on the implementation from RankLib, Lemur Project (https://sourceforge.net/p/lemur/wiki/RankLib/), the code has been run using the following rules from the command line. The user has to be in the same directory with the downloaded RankLib-2.1-patched.jar library file. And has to have access to the MSLR-WEB10K dataset, also from the same current folder.
   ```
   java -jar RankLib-2.1-patched.jar -train MSLR-WEB10K/Fold1/train.txt -test MSLR-WEB10K/Fold1/test.txt -validate MSLR-WEB10K/Fold1/vali.txt -ranker 6 -metric2t NDCG@10 -metric2T ERR@10 -save model_fold1_NDCG.txt -noeq -max 1
   ```
