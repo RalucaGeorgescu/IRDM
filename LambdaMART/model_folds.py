@@ -2,6 +2,12 @@ import numpy as np
 import logging
 import rankpy
 from rankpy.queries import Queries
+from rankpy.queries import find_constant_features
+from rankpy.models import LambdaMART
+from sklearn.grid_search import ParameterGrid
+
+from ndcg import NDCG
+from maprec import MAP
 
 # Turn on logging.
 logging.basicConfig(format='%(asctime)s : %(message)s', level=logging.INFO)
@@ -42,10 +48,10 @@ for i in xrange(1, 6):
 	logging.info('================================================================================')	
 
 	#parameters
-	metric = ['nDCG@10']
+	metric = 'nDCG@10'
 	max_leaf_nodes = 7
 	min_samples_split = 2
-	estopping = 50	
+	estopping = 10	
 	#TODO change these to the optimal ones found from the grid search
 	n_estimators = 1000
 	max_features = None
@@ -97,6 +103,6 @@ logging.info('Average %s on the test queries from all folds: %.8f'
              % ('MAP', map_mean))
 
 with open('folds_results.txt', 'a') as f:
-	f.write("Average Results \n" %(i))
+	f.write("Average Results \n")
 	f.write("nDCG@10 %f\n" %(dcg_mean))
 	f.write("MAP %f\n" %(map_mean))

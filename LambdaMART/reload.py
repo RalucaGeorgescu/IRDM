@@ -2,6 +2,13 @@ import numpy as np
 import logging
 import rankpy
 from rankpy.queries import Queries
+from rankpy.queries import find_constant_features
+from rankpy.models import LambdaMART
+from sklearn.grid_search import ParameterGrid
+
+from ndcg import NDCG
+from maprec import MAP
+
 
 # Turn on logging.
 logging.basicConfig(format='%(asctime)s : %(message)s', level=logging.INFO)
