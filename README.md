@@ -16,7 +16,8 @@ The following are instructions to run each algorithm proposed:
   ```
   java -jar RankLib-2.8.jar -train MSLR-WEB10K/Fold1/train.txt -validate MSLR-WEB10K/Fold1/vali.txt -test MSLR-WEB10K/Fold1/test.txt -ranker 1  -epoch 50 -layer 2 -node 20 -lr 0.0001 -metric2t NDCG@10 -save IRDMCW/modelranknet_trial4.txt
   ```
-  - The above examples refer to the data in Fold1 only, due to the computational power restrictions, the models have been run separetly on all 5 folds (Fold1-Fold5) and then the results averaged. The models have been trained using NDCG@10 evaluation metrics. Parameters tuned: Epochs [50, 100], Layers [1, 2], Nodes [5, 10, 15, 20, 25, 50], Learning Rate [0.00005, 0.0001, 0.0005, 0.005]. All trained models are saved under RankNet/RankNet_Models/.
+  - The above examples refer to the data in Fold1 only, due to the computational power restrictions, the models have been run separetly on all 5 folds (Fold1-Fold5) and then the results averaged. The models have been trained using NDCG@10 evaluation metrics. 
+  - Parameters tuned: Epochs [50, 100], Layers [1, 2], Nodes [5, 10, 15, 20, 25, 50], Learning Rate [0.00005, 0.0001, 0.0005, 0.005]. All trained models are saved under RankNet/RankNet_Models/.
   - After the models have been trained and parameters tuned, they have been used to rerank the test data and provide with the new ranking for test.txt files, the following command has been used to do the reranking:
   ```
   java -jar RankLib-2.8.jar -load IRDMCW/modelranknet_trial10.txt -rank MSLR-WEB10K/Fold1/test.txt -score IRDMCW2017/reranking_trial10.txt
