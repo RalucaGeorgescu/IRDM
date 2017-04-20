@@ -9,6 +9,14 @@ The following are instructions to run each algorithm proposed:
 - RankNet
 
 - LambdaMART
+  - The implementation of LambdaMART has made use of the RankPy Library (https://bitbucket.org/tunystom/rankpy)
+  - Assumptions:
+    - The RankPy library is installed in the LambdaMART directory by following the instructions in the link above.
+    - The MSLR-WEB10K data folder is existing in the same directory.
+  - First, run the prep.py script to convert the data .txt files to binary for easier loading.
+  ```
+  python prep.py
+  ```
 
 - AdaRank
   - Based on the implementation from RankLib, Lemur Project, the code has been run using the following rules from the command line. The user has to be in the same directory with the downloaded RankLib-2.1-patched.jar library file. And has to have access to the MSLR-WEB10K dataset, also from the same current folder.
