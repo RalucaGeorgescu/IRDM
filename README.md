@@ -8,11 +8,11 @@ The following are instructions to run each algorithm proposed:
 
 - RankNet
   - RankNet algorithm was implemented using open source Lemur Project software, RankLib library (version used: RankLib-2.8.jar). The software has been run using the below commands directly from the command line. User should be in the same directory as RankLib-2.8.jar file, have access to MSLR-WEB10K dataset and follow the following commands: 
-  -- To train the RankNet model with 5 fold cross validation using the train.txt files from Fold1 (evaluation metrics NDCG@10):
+   - To train the RankNet model with 5 fold cross validation using the train.txt files from Fold1 (evaluation metrics NDCG@10):
   ```
   java -jar RankLib-2.8.jar -kcv 5 -train MSLR-WEB10K/Fold1/train.txt -ranker 1 -epoch 50 -layer 2 -node 35 -lr 0.0001 -metric2T NDCG@10  -save mymodelranknet14_trial11.txt -kcvmd ~/Desktop -kcvmn mymodelranknet14_trial11_crval.txt -tvs 0.7
   ```
-  -- To train the RankNet model using the train.txt, val.txt and test.txt files (without cross validation) from Fold1 (evaluation metrics NDCG@10):
+   - To train the RankNet model using the train.txt, val.txt and test.txt files (without cross validation) from Fold1 (evaluation metrics NDCG@10):
   ```
   java -jar RankLib-2.8.jar -train MSLR-WEB10K/Fold1/train.txt -validate MSLR-WEB10K/Fold1/vali.txt -test MSLR-WEB10K/Fold1/test.txt -ranker 1  -epoch 50 -layer 2 -node 100 -lr 0.00005 -metric2t NDCG@10 -save IRDMCW/modelranknet19_trial14.txt
   ```
