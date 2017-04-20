@@ -22,7 +22,7 @@ The following are instructions to run each algorithm proposed:
   ```
   java -jar RankLib-2.8.jar -load IRDMCW/modelranknet_trial10.txt -rank MSLR-WEB10K/Fold1/test.txt -score IRDMCW2017/reranking_trial10.txt
   ```
-  - In order to evaluate the performance of the models, new reranked files were tested agains the NDCG@10, MAP evaluation metrics together with hypothesis testing Student's t-test. The code implemented for the evaluation can be found [here].
+  - In order to evaluate the performance of the models, new reranked files were tested agains the NDCG@10, MAP evaluation metrics together with hypothesis testing Student's t-test. The code implemented for the evaluation can be found https://github.com/RalucaGeorgescu/IRDM/tree/master/RankNet/Evaluation.
  
  
 - LambdaMART
